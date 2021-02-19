@@ -3,19 +3,26 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.7.1",
+    "nodemon": "^2.0.7",
+    "offshore-components": "^0.1.8",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.2",
     "web-vitals": "^1.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "cross-env NODE_ENV=production react-scripts start",
+    "start:local": "cross-env NODE_ENV=local react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "create-link": "create-link.sh",
+    "postinstall": "node -e \"process.env.NODE_ENV != 'production' && process.exit(1)\" || npm run create-link"
   },
   "eslintConfig": {
     "extends": [
@@ -34,5 +41,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "babel-plugin-module-resolver": "^4.1.0",
+    "cross-env": "^7.0.3"
   }
 }

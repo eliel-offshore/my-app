@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import CssBaseline from '@material-ui/core/CssBaseline'
+import { CustomThemeProvider } from 'offshore-components'
 
 ReactDOM.render(
-  <React.StrictMode>
+  <CustomThemeProvider>
+    <CssBaseline />
     <App />
-  </React.StrictMode>,
+  </CustomThemeProvider>,
   document.getElementById('root')
 );
 
